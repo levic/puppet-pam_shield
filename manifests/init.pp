@@ -49,11 +49,11 @@ class pam_shield (
   }
 
   # Local version of shield-trigger, patched to work with ipv6
-  file { '/usr/sbin/uob-shield-trigger':
+  file { '/usr/sbin/shield-trigger-v6':
     owner   => 'root',
     group   => 'root',
     mode    => '0744',
-    source  => 'puppet:///modules/pam_shield/uob-shield-trigger',
+    source  => 'puppet:///modules/pam_shield/shield-trigger-v6',
     require => Package['pam_shield'],
   }
 

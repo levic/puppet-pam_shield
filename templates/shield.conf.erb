@@ -29,10 +29,11 @@ db /var/lib/pam_shield/db
 
 # external command that is run when a site should be blocked/unblocked
 # Choose between "iptables rules" or "null routing". Not sure how the iptables
-# styff works out with Puppet's control of iptables, so we use null routing
+# stuff works out with Puppet's control of iptables, so we use null routing
+# shield-trigger-v6 is a modified version that supports IPv6
 # trigger_cmd /usr/sbin/shield-trigger-iptables
 # trigger_cmd /usr/sbin/shield-trigger
-trigger_cmd /usr/sbin/uob-shield-trigger
+trigger_cmd /usr/sbin/shield-trigger-v6
 
 # number of connections per interval from one site that triggers us
 max_conns <%= @max_conns %>
@@ -47,7 +48,6 @@ max_conns <%= @max_conns %>
 interval <%= @interval %>
 
 # period until the entry expires from the database again
-# cronjob runs every 5 minutes
 retention <%= @retention %>
 
 # EOB
