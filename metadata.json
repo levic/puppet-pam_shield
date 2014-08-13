@@ -9,25 +9,45 @@
   "issues_url": "https://github.com/djjudas21/puppet-pam_shield/issues",
   "operatingsystem_support": [
     {
-    "operatingsystem":"RedHat",
-    "operatingsystemrelease":[ "5.0", "6.0" ]
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5.0",
+        "6.0"
+      ]
     },
     {
-    "operatingsystem":"CentOS",
-    "operatingsystemrelease":[ "5.0", "6.0" ]
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5.0",
+        "6.0"
+      ]
     },
     {
-    "operatingsystem":"Scientific Linux",
-    "operatingsystemrelease":[ "5.0", "6.0" ]
+      "operatingsystem": "Scientific Linux",
+      "operatingsystemrelease": [
+        "5.0",
+        "6.0"
+      ]
     },
     {
-    "operatingsystem":"Fedora",
-    "operatingsystemrelease":[ "17", "18", "19", "20", "21" ]
+      "operatingsystem": "Fedora",
+      "operatingsystemrelease": [
+        "17",
+        "18",
+        "19",
+        "20",
+        "21"
+      ]
     }
   ],
   "dependencies": [
-    { "name": "puppetlabs-stdlib", "version_range": ">= 1.0.0" },
-    { "name": "stahnma-epel", "version_range": ">= 0.1.0" }
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    },
+    {
+      "name": "stahnma-epel",
+      "version_range": ">= 0.1.0"
+    }
   ]
 }
-
