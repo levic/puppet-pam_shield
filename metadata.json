@@ -1,12 +1,18 @@
 {
   "name": "jgazeley-pam_shield",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "jgazeley",
   "summary": "Install pam_shield brute force protection for sshd",
   "license": "Apache 2.0",
   "source": "https://github.com/djjudas21/puppet-pam_shield",
   "project_page": "https://github.com/djjudas21/puppet-pam_shield",
   "issues_url": "https://github.com/djjudas21/puppet-pam_shield/issues",
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": "3.x"
+    }
+  ],
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
