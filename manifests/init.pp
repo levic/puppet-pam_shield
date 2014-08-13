@@ -33,9 +33,9 @@ class pam_shield (
 
   # Install SELinux pam_shield policy
   if $::osfamily == 'RedHat' {
-    selinux::module { 'resnet-pam-shield':
+    selinux::module { 'pam-shield':
       ensure => 'present',
-      source => 'puppet:///modules/pam_shield/resnet-pam-shield.te',
+      source => 'puppet:///modules/pam_shield/pam-shield.te',
     }
   }
 

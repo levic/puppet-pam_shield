@@ -1,4 +1,4 @@
-module resnet-pam-shield 1.0;
+module pam-shield 1.0;
 
 require {
 	type sshd_t;
