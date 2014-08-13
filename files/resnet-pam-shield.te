@@ -1,0 +1,13 @@
+module resnet-pam-shield 1.0;
+
+require {
+	type sshd_t;
+	type ifconfig_exec_t;
+	class netlink_route_socket nlmsg_write;
+	class file { read getattr open execute execute_no_trans };
+}
+
+#============= sshd_t ==============
+allow sshd_t ifconfig_exec_t:file { read getattr open execute execute_no_trans };
+allow sshd_t self:netlink_route_socket nlmsg_write;
+
