@@ -24,7 +24,7 @@
     "operatingsystem":"Fedora",
     "operatingsystemrelease":[ "17", "18", "19", "20", "21" ]
     }
-  ]
+  ],
   "dependencies": [
     { "name": "puppetlabs-stdlib", "version_range": ">= 1.0.0" },
     { "name": "stahnma-epel", "version_range": ">= 0.1.0" }
