@@ -1,0 +1,17 @@
+{
+  "name": "djjudas21-pam_shield",
+  "version": "0.1.0",
+  "author": "djjudas21",
+  "summary": "Install pam_shield brute force protection for sshd",
+  "license": "Apache 2.0",
+  "source": "https://github.com/djjudas21/puppet-pam_shield",
+  "project_page": "https://github.com/djjudas21/puppet-pam_shield",
+  "issues_url": "https://github.com/djjudas21/puppet-pam_shield/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    }
+  ]
+}
+
