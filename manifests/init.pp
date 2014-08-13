@@ -39,12 +39,14 @@ class pam_shield (
     }
   }
 
-  # Cronjob to unban people runs every 5 minutes
+  # The 'retention' param only sets bans to expire, it doesn't actually remove the ban.
+  # The packaged cron job to unban hosts runs daily, which is not sufficient. We
+  # manually run it more frequently.
   # Bin stdout, but email us any stderr
   cron { 'pam-shield-unban':
     command => '/etc/cron.daily/pam_shield 1> /dev/null',
     user    => 'root',
-    minute  => '*/5',
+    minute  => '*/3',
     require => Package['pam_shield'],
   }
 
