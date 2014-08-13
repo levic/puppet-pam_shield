@@ -23,10 +23,6 @@ This module installs the pam_shield package and provides basic config files
 to protect your system from ssh brute-force attacks with (relatively) sane
 defaults. It should "just work" out of the box.
 
-The first release has no customisable parameters as the config file is hard-coded.
-Future releases will provide this functionality (feel free to send patches if you
-want it sooner).
-
 ## Setup
 
 ### What pam_shield affects
@@ -42,8 +38,53 @@ conflicts if you provide EPEL in a different way.
 
 ## Usage
 
-The first release of this module provides no customisable options. To use it,
-just `include ::pam_shield`
+Basic use of this module requires no parameters. To use it and accept the defaults,
+just call `include ::pam_shield` in your manifest.
+
+It is likely you'll want to customise the installation and override the defaults.
+
+```puppet
+  class { 'pam_shield':
+    allow_missing_dns     => true,
+    allow_missing_reverse => true,
+    max_conns             => 5,
+    interval              => '1m',
+    retention             => '4m',
+    allow                 => [
+      '192.168.0.1/24',
+      '192.168.6.32',
+    ],
+  }
+```
+
+Parameters with `pam_shield`:
+
+### `allow_missing_dns` ###
+Boolean. Is it OK for the remote host to have no DNS entry? Default: `true`
+
+### `allow_missing_reverse` ###
+Boolean. Is it OK for the remote host to have no reverse DNS entry? Default: `true`
+
+### `max_conns` ###
+Integer. Number of failed connections per interval from one site that triggers us to block them. Default: `5`
+
+### `interval` ###
+String. The time interval during which `max_conns` must not be exceeded. Default: `1m`
+
+String formatting must be one of the following:
+`1s seconds`
+`1m minutes`
+`1h hours`
+`1d days`
+`1w weeks`
+`1M months (30 days)`
+`1y years`
+
+### `retention` ###
+String. Period until the entry expires from the database again. Formatting as `interval`. Default: `4m`
+
+### `allow` ###
+Array of strings. Any IP address or subnet in CIDR notation. Default: `undef`
 
 ## Reference
 

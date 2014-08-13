@@ -8,10 +8,10 @@
 block all-users
 
 # is it OK for the remote host to have no DNS entry?
-allow_missing_dns yes
+allow_missing_dns <% if @allow_missing_dns == true %>yes<% else %>no<% end %>
 
 # is it OK for the remote host to have no reverse DNS entry?
-allow_missing_reverse yes
+allow_missing_reverse <% if @allow_missing_reverse == true %>yes<% else %>no<% end %>
 
 # allow these hosts or networks by name
 allow localhost
@@ -20,20 +20,22 @@ allow localhost
 # never lock out these networks. You should list all your local networks here to
 # make sure no local user can lock you out from the inside
 allow 127.0.0.1/8
+<% @allow.each do |subnet| -%>
+allow <%= subnet %>
+<% end -%>
 
 # location of the database file
 db /var/lib/pam_shield/db
 
 # external command that is run when a site should be blocked/unblocked
 # Choose between "iptables rules" or "null routing". Not sure how the iptables
-# stuff works out with Puppet's control of iptables, so we use null routing
-# The custom uob-shield-trigger also supports IPv6
+# styff works out with Puppet's control of iptables, so we use null routing
 # trigger_cmd /usr/sbin/shield-trigger-iptables
 # trigger_cmd /usr/sbin/shield-trigger
 trigger_cmd /usr/sbin/uob-shield-trigger
 
 # number of connections per interval from one site that triggers us
-max_conns 5
+max_conns <%= @max_conns %>
 
 # the interval and retention period may be specified in seconds, or with a postfix:
 #
@@ -42,10 +44,10 @@ max_conns 5
 # 1h	hours		1y	years
 # 1d	days
 
-interval 1m
+interval <%= @interval %>
 
 # period until the entry expires from the database again
 # cronjob runs every 5 minutes
-retention 4m
+retention <%= @retention %>
 
 # EOB

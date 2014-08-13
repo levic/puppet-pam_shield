@@ -1,5 +1,12 @@
 # Install pam_shield brute force protection
-class pam_shield {
+class pam_shield (
+  $allow_missing_dns     = true, # is it OK for the remote host to have no DNS entry?
+  $allow_missing_reverse = true, # is it OK for the remote host to have no reverse DNS entry?
+  $max_conns             = 5,    # number of connections per interval from one site that triggers us
+  $interval              = '1m', # the interval
+  $retention             = '4m', # period until the entry expires from the database again
+  $allow                 = undef,
+) {
 
   # Install package
   package { 'pam_shield':
@@ -11,7 +18,7 @@ class pam_shield {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    source  => 'puppet:///modules/pam_shield/shield.conf',
+    content => template('pam_shield/shield.conf.erb'),
     require => Package['pam_shield'],
   }
 

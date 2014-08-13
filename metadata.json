@@ -1,7 +1,7 @@
 {
-  "name": "djjudas21-pam_shield",
-  "version": "0.1.0",
-  "author": "djjudas21",
+  "name": "jgazeley-pam_shield",
+  "version": "1.0.0",
+  "author": "jgazeley",
   "summary": "Install pam_shield brute force protection for sshd",
   "license": "Apache 2.0",
   "source": "https://github.com/djjudas21/puppet-pam_shield",
