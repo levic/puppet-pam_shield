@@ -31,8 +31,8 @@ class pam_shield (
     require => Package[ 'pam_shield', 'openssh-server' ],
   }
 
-  # Install SELinux pam_shield policy
-  if $::osfamily == 'RedHat' {
+  # Install SELinux pam_shield policy where appropriate
+  if $::selinux == true {
     selinux::module { 'pam-shield':
       ensure => 'present',
       source => 'puppet:///modules/pam_shield/pam-shield.te',
