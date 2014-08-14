@@ -47,7 +47,10 @@ class pam_shield (
     command => '/etc/cron.daily/pam_shield 1> /dev/null',
     user    => 'root',
     minute  => '*/3',
-    require => Package['pam_shield'],
+    require => [
+      Package['pam_shield'],
+      File['/usr/sbin/shield-trigger-v6'],
+    ],
   }
 
   # Local version of shield-trigger, patched to work with ipv6
