@@ -6,10 +6,11 @@ class pam_shield (
   $interval              = '1m', # the interval
   $retention             = '4m', # period until the entry expires from the database again
   $allow                 = undef,
+  $selinux_policy        = false,
 ) {
 
   # Validate our input and fail compilation if any inputs are bad
-  validate_bool($allow_missing_dns, $allow_missing_reverse)
+  validate_bool($allow_missing_dns, $allow_missing_reverse, $selinux_policy)
   validate_re($max_conns, '^\d+$', '$max_conns must be an integer')
   validate_re($interval, '^\d+[smhdwMy]$', '$interval must be formatted as an integer and one letter')
   validate_re($retention, '^\d+[smhdwMy]$', '$interval must be formatted as an integer and one letter')
@@ -38,7 +39,8 @@ class pam_shield (
   }
 
   # Install SELinux pam_shield policy where appropriate
-  if $::selinux == true {
+  # Requires jfryman/selinux which is not currently in the Forge
+  if ($selinux_policy == true and $::selinux == true) {
     selinux::module { 'pam-shield':
       ensure => 'present',
       source => 'puppet:///modules/pam_shield/pam-shield.te',

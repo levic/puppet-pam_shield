@@ -86,6 +86,11 @@ String. Period until the entry expires from the database again. Formatting as `i
 ### `allow` ###
 Array of strings. Any IP address or subnet in CIDR notation. Default: `undef`
 
+### `selinux_policy` ###
+Boolean. Install an SELinux policy to allow pam_shield to operate normally. Requires jfryman/selinux which
+is not currently in Puppet Forge (pending [issue #7](https://github.com/jfryman/puppet-selinux/issues/7).
+Default: `false`
+
 ## Reference
 
 ... one day
