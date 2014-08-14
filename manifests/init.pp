@@ -57,7 +57,7 @@ class pam_shield (
   file { '/usr/sbin/shield-trigger-v6':
     owner   => 'root',
     group   => 'root',
-    mode    => '0744',
+    mode    => '0755',
     source  => 'puppet:///modules/pam_shield/shield-trigger-v6',
     require => Package['pam_shield'],
   }
