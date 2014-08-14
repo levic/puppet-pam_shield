@@ -34,7 +34,7 @@ class pam_shield (
     group   => 'root',
     mode    => '0644',
     source  => 'puppet:///modules/pam_shield/sshd',
-    require => Package[ 'pam_shield', 'openssh-server' ],
+    require => Package['pam_shield'],
   }
 
   # Install SELinux pam_shield policy where appropriate
