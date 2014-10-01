@@ -48,11 +48,11 @@
   ],
   "dependencies": [
     {
-      "name": "puppetlabs-stdlib",
+      "name": "puppetlabs/stdlib",
       "version_range": ">= 1.0.0"
     },
     {
-      "name": "stahnma-epel",
+      "name": "stahnma/epel",
       "version_range": ">= 0.1.0"
     }
   ]
