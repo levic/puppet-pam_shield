@@ -15,7 +15,7 @@
 
 This module install pam_shield brute-force protection for sshd. It was developed for
 use with CentOS and by extension should work on Red Hat, Scientific and Fedora. It has
-not been tested with Debian or Ubuntu.
+been tested with Ubuntu but not Debian.
 
 ## Module Description
 
@@ -98,7 +98,7 @@ Default: `false`
 ## Limitations
 
 This module was developed for use with CentOS and by extension should work on
-Red Hat, Scientific and Fedora. It has not been tested with Debian or Ubuntu.
+Red Hat, Scientific and Fedora. It has been tested with Ubuntu but not Debian
 If packages are available for other platforms then it should be easy to extend
 this module.
 
