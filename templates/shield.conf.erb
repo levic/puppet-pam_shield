@@ -33,7 +33,7 @@ db /var/lib/pam_shield/db
 # shield-trigger-v6 is a modified version that supports IPv6
 # trigger_cmd /usr/sbin/shield-trigger-iptables
 # trigger_cmd /usr/sbin/shield-trigger
-trigger_cmd /usr/sbin/shield-trigger-v6
+trigger_cmd /usr/sbin/<%= @real_trigger %>
 
 # number of connections per interval from one site that triggers us
 max_conns <%= @max_conns %>

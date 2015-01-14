@@ -7,6 +7,7 @@ hield.conf'lass pam_shield (
   $retention             = '4m', # period until the entry expires from the database again
   $allow                 = undef,
   $selinux_policy        = false,
+  $trigger               = undef, # the trigger script in /usr/sbin to use
 ) {
 
   # Validate our input and fail compilation if any inputs are bad
@@ -18,6 +19,7 @@ hield.conf'lass pam_shield (
   include pam_shield::params
 
   $package = $pam_shield::params::package 
+  $real_trigger = pick($trigger, $pam_shield::params::default_trigger)
 
   # Install package
   package { $package : 

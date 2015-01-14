@@ -16,4 +16,5 @@ class pam_shield::params (
       $install_pam_config = false
     }
   }
+  $default_trigger = 'shield-trigger-v6'
 }
