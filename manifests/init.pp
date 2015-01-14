@@ -8,6 +8,7 @@ hield.conf'lass pam_shield (
   $allow                 = undef,
   $selinux_policy        = false,
   $trigger               = undef, # the trigger script in /usr/sbin to use
+  $debug                 = undef, # whether to include syslog logging
 ) {
 
   # Validate our input and fail compilation if any inputs are bad
@@ -20,6 +21,7 @@ hield.conf'lass pam_shield (
 
   $package = $pam_shield::params::package 
   $real_trigger = pick($trigger, $pam_shield::params::default_trigger)
+  $real_debug = pick($debug, $pam_shield::params::default_debug)
 
   # Install package
   package { $package : 

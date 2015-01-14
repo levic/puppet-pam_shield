@@ -1,7 +1,11 @@
 # /etc/security/shield.conf
 
 # log debugging info to syslog
-# debug on
+<% if @real_debug -%>
+debug on
+<% else %>
+#debug on
+<% end -%>
 
 # block unknown-users		blocks only unknown users
 # block all-users			blocks everyone
