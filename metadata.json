@@ -1,6 +1,6 @@
 {
   "name": "jgazeley-pam_shield",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "jgazeley",
   "summary": "Install pam_shield brute force protection for sshd",
   "license": "Apache-2.0",
