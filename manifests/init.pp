@@ -11,7 +11,7 @@ class pam_shield (
 
   # Validate our input and fail compilation if any inputs are bad
   validate_bool($allow_missing_dns, $allow_missing_reverse, $selinux_policy)
-  validate_re($max_conns, '^\d+$', '$max_conns must be an integer')
+  validate_integer($max_conns, undef, 0)
   validate_re($interval, '^\d+[smhdwMy]$', '$interval must be formatted as an integer and one letter')
   validate_re($retention, '^\d+[smhdwMy]$', '$interval must be formatted as an integer and one letter')
 
