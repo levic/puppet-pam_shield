@@ -29,6 +29,14 @@ class pam_shield (
     require => Package['pam_shield'],
   }
 
+  # Ensure the DB file is present as the rpm doesn't always create it
+  file { '/var/lib/pam_shield/db':
+    ensure => present,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0600',
+  }
+
   # Tell sshd to start using the new config
   file { '/etc/pam.d/sshd':
     owner   => 'root',
