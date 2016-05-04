@@ -1,5 +1,5 @@
 # Install pam_shield brute force protection
-hield.conf'lass pam_shield (
+class pam_shield (
   $allow_missing_dns     = true, # is it OK for the remote host to have no DNS entry?
   $allow_missing_reverse = true, # is it OK for the remote host to have no reverse DNS entry?
   $max_conns             = 5,    # number of connections per interval from one site that triggers us
@@ -22,6 +22,7 @@ hield.conf'lass pam_shield (
   $package = $pam_shield::params::package 
   $real_trigger = pick($trigger, $pam_shield::params::default_trigger)
   $real_debug = pick($debug, $pam_shield::params::default_debug)
+  $install_pam_config = $pam_shield::params::install_pam_config
 
   # Install package
   package { $package : 
@@ -68,7 +69,7 @@ hield.conf'lass pam_shield (
     ],
   }
 
-  if ($pam_shield::params::install_pam_config) {
+  if ($install_pam_config) {
     # Tell sshd to start using the new config
     file { '/etc/pam.d/sshd':
       owner   => 'root',

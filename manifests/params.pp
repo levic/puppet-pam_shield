@@ -3,12 +3,12 @@ class pam_shield::params (
 ){
 
   case $::osfamily {
-    RedHat: {
+    'RedHat': {
       $package = 'pam_shield'
       $install_pam_config = true 
       $default_debug = false
     }
-    Debian: {
+    'Debian': {
       $package = 'libpam-shield'
       $install_pam_config = false
       $default_debug = true
